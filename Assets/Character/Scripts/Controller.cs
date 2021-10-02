@@ -20,16 +20,16 @@ public class Controller : MonoBehaviour
         var torque = rigidbody.angularVelocity;
 
         if (Input.GetKey(KeyCode.LeftArrow) && torque.z > -maxAngularVelocity) {
-            rigidbody.AddRelativeTorque(-Vector3.Forward * torqueForce * Time.FixedDelta, ForceMode.Force);
+            rigidbody.AddRelativeTorque(new Vector3(0,0,-1) * torqueForce * Time.fixedDeltaTime, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.RightArrow) && torque.z < maxAngularVelocity) {
-            rigidbody.AddRelativeTorque(Vector3.Forward * torqueForce * Time.FixedDelta, ForceMode.Force);
+            rigidbody.AddRelativeTorque(new Vector3(0,0,1) * torqueForce * Time.fixedDeltaTime, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.DownArrow) && torque.x > -maxAngularVelocity) {
-            rigidbody.AddRelativeTorque(Vector3.Right * torqueForce * Time.FixedDelta, ForceMode.Force);
+            rigidbody.AddRelativeTorque(new Vector3(-1,0,0) * torqueForce * Time.fixedDeltaTime, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.UpArrow) && torque.x < maxAngularVelocity) {
-            rigidbody.AddRelativeTorque(Vector3.Right * torqueForce * Time.FixedDelta, ForceMode.Force);
+            rigidbody.AddRelativeTorque(new Vector3(1,0,0) * torqueForce * Time.fixedDeltaTime, ForceMode.Force);
         }
     }
 }
