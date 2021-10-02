@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-LD49-Artgood/Library/
-LD49-Artgood/[Tt]emp/
-LD49-Artgood/[Oo]bj/
-LD49-Artgood/[Bb]uild/
-LD49-Artgood/[Bb]uilds/
-LD49-Artgood/[Ll]ogs/
-LD49-Artgood/[Uu]ser[Ss]ettings/
+/LD49-Artgood/Library**
+/LD49-Artgood/[Tt]emp**
+/LD49-Artgood/[Oo]bj**
+/LD49-Artgood/[Bb]uild**
+/LD49-Artgood/[Bb]uilds**
+/LD49-Artgood/[Ll]ogs**
+/LD49-Artgood/[Uu]ser[Ss]ettings**
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -70,4 +70,3 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-LD49-Artgood/Library/ArtifactDB
