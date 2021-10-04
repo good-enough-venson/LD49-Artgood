@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Path: {fileID: 1407836895}
   m_PathPosition: 11.286055
   m_PositionUnits: 1
-  m_PathOffset: {x: -0.48905897, y: -0.6850843, z: -6.2971354}
+  m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 1
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AutoDolly:
     m_Enabled: 1
-    m_PositionOffset: 0
-    m_SearchRadius: 2
+    m_PositionOffset: -5
+    m_SearchRadius: 0
     m_SearchResolution: 5
 --- !u!1 &1641539612
 GameObject:

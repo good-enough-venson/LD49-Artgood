@@ -21,7 +21,7 @@ public class Controller : MonoBehaviour
     private bool forward = false, backward = false, right = false, left = false;
 
     //private Rigidbody rb;
-    new public Rigidbody rigidbody;// { 
+    public Rigidbody ballRigidbody;// { 
     //    get { if (rb == null) rb = transform.GetComponent<Rigidbody>(); return rb; } 
     //    set => rb = value;    
     //}
@@ -59,19 +59,22 @@ public class Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        var torque = rigidbody.angularVelocity;
+        var torque = ballRigidbody.angularVelocity;
 
         if (left) {
-            rigidbody.AddTorque(sidewaysRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            ballRigidbody.AddTorque(sidewaysRoll * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
         }
         if (right) {
-            rigidbody.AddTorque(-sidewaysRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            ballRigidbody.AddTorque(-sidewaysRoll * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
         }
         if (backward) {
-            rigidbody.AddTorque(-forwardRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            ballRigidbody.AddTorque(-forwardRoll * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
         }
         if (forward) {
-            rigidbody.AddTorque(forwardRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            ballRigidbody.AddTorque(forwardRoll * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
         }
+        //if (!(left || right || backward || forward)) {
+        //    ballRigidbody.angularVelocity *= Mathf.Min(0f, 1f - (Time.fixedDeltaTime));
+        //}
     }
 }
