@@ -47,14 +47,18 @@ public class Controller : MonoBehaviour
         inputActions.Player.Steering.canceled += (val) => {
             right = false; left = false;
         };
-    }
 
-    private void OnEnable() {
         inputActions.Enable();
     }
 
+    private void OnEnable() {
+        if(inputActions != null)
+            inputActions.Enable();
+    }
+
     private void OnDisable() {
-        inputActions.Disable();
+        if(inputActions != null)
+            inputActions.Disable();
     }
 
     void FixedUpdate()
