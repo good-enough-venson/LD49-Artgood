@@ -7,7 +7,7 @@ public class MusicManagerScript : MonoBehaviour
     public AudioSource soundTrack;
     public float loopDelay = 6;
     bool playing = false;
-    float playTime = 10;
+    public float playTime = 10;
 
     private void Awake() {
         DontDestroyOnLoad(gameObject);
