@@ -62,7 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7062d959c494e4cf9b23cfcce3df9008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueForce: 2
+  steeringReference: {fileID: 0}
+  torqueForce: 300
   rigidbody: {fileID: 5977058262495156993}
 --- !u!153 &5977058261554512490
 ConfigurableJoint:

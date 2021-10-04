@@ -5,6 +5,15 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     public BallController inputActions;
+    public Transform steeringReference;
+
+    public Vector3 forwardRoll {
+        get => steeringReference ? steeringReference.right : Vector3.right;
+    }
+
+    public Vector3 sidewaysRoll {
+        get => Quaternion.Euler(0, 90, 0) * forwardRoll;
+    }
 
     //public float maxAngularVelocity = 100;
     public float torqueForce = 1;
@@ -53,16 +62,16 @@ public class Controller : MonoBehaviour
         var torque = rigidbody.angularVelocity;
 
         if (left) {
-            rigidbody.AddTorque(new Vector3(0,0,-1) * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
+            rigidbody.AddTorque(sidewaysRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
         if (right) {
-            rigidbody.AddTorque(new Vector3(0,0,1) * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
+            rigidbody.AddTorque(-sidewaysRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
         if (backward) {
-            rigidbody.AddTorque(new Vector3(-1,0,0) * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
+            rigidbody.AddTorque(-forwardRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
         if (forward) {
-            rigidbody.AddTorque(new Vector3(1,0,0) * torqueForce * Time.fixedDeltaTime, ForceMode.Impulse);
+            rigidbody.AddTorque(forwardRoll * torqueForce * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
     }
 }
